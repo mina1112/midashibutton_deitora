@@ -1,0 +1,162 @@
+$border-color: #3F51B5;
+$border2-color: #7385E9;
+$border3-color: #DCEE39;
+$border4-color: #B53F4F;
+$font-color: #fff;
+.midashi {
+    font-size: 24px;
+    font-weight: 700;
+    margin-bottom: 47px;
+}
+
+.midashi1 {
+    border-bottom: solid 3px $border-color;
+}
+
+.midashi2 {
+    border-bottom: dashed 3px $border-color;
+}
+
+.midashi3 {
+    background-color: $border-color;
+    color: $font-color;
+}
+
+.midashi4 {
+    background-color: $border2-color;
+    color: $font-color;
+    border-bottom: solid 3px $border-color;
+    padding: 0 0.5 0 0em;
+}
+
+.midashi5 {
+    padding: 0.25em 0.5em;
+    border-left: solid 6px $border-color;
+}
+
+.midashi6 {
+    background: linear-gradient(transparent 50%, $border3-color 0);
+}
+
+.midashi7 {
+    span {
+        display: inline-block; //marginを当てるため
+        padding: 3px;
+        background-color: $border3-color;
+        margin-top: 8px;
+        &:nth-child(n + 2) {
+            margin-top: 8px;
+        }
+    }
+}
+
+.midashi8 {
+    padding: 3px;
+    background-color: $border-color;
+    color: $font-color;
+    position: relative; //relativeとabsoluteで三角の位置固定
+    &::after {
+        content: "";
+        position: absolute;
+        left: 30px;
+        top: 100%;
+        width: 0;
+        height: 0;
+        border-style: solid;
+        border-width: 16px 13px 0 13px;
+        border-color: $border-color transparent transparent transparent;
+    }
+}
+
+.midashi9 {
+    padding-bottom: 4px;
+    border-bottom: solid 2px $border-color;
+    position: relative;
+    &::after {
+        content: ""; //これがないとafter内の内容が表示されない
+        position: absolute;
+        width: 83px;
+        height: 2px;
+        background: $border4-color;
+        left: 0;
+        bottom: 0;
+        top: 100%; //これで縦の位置がそろう　なぜ100%
+    }
+}
+
+.midashi10 {
+    //疑似要素以外の作り方がないか
+    position: relative;
+    padding: 3px 12px;
+    &::before {
+        content: "";
+        position: absolute;
+        width: 5px;
+        height: 16px;
+        background: $border-color;
+        left: 0;
+        top: 50%;
+        transform: translateY(-50%);
+    }
+}
+
+.midashi11 {
+    //translateXとYの使い分け
+    position: relative;
+    padding-bottom: 17px;
+    text-align: center;
+    &::after {
+        content: "";
+        position: absolute;
+        height: 4px;
+        width: 52px;
+        bottom: 0;
+        left: 50%;
+        background: $border-color;
+        transform: translateX(-50%);
+    }
+}
+
+.midashi12 {
+    position: relative;
+    padding-left: 24px;
+    &::before {
+        content: "";
+        position: absolute;
+        width: 18px; //アイコンを格納する箱が必用
+        height: 24px;
+        top: 50%;
+        left: 0;
+        transform: translateY(-50%);
+        background: url(../assets/img/check.png) no-repeat center center / contain; //containは縦横比を維持したまま背景とする background-imageではだめ
+    }
+}
+
+.midashi13 {
+    position: relative;
+    padding-right: 30px;
+    &::after {
+        content: "";
+        position: absolute;
+        width: 18px;
+        height: 24px;
+    }
+}
+
+.midashi15 {
+    text-align: center;
+    position: relative;
+    padding: 0 11px;
+    &::before &::after {
+        content: "";
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 129px;
+        height: 0px;
+        background: $border-color;
+        bottom: 0;
+        left: 0;
+        transform: translate(-50%);
+    }
+}
